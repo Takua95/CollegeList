@@ -381,7 +381,8 @@ public class CollegeList
 			super.setStreetAddress(StreetAddress);
 			super.setZipCode(ZipCode);
 			super.setPhoneNumber(PhoneNumber);
+			this.setMajor(Major);
+			this.setGPA(GPA);
 		}
 	}
 }
-
