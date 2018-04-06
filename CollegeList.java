@@ -93,47 +93,42 @@ public class CollegeList
 	private class Person
 	{
 		//
-		protected String FirstName = "VOID";
-		protected String LastName = "VOID";
-		protected String StreetAddress = "VOID";
-		protected String ZipCode = "VOID";
-		protected String PhoneNumber = "VOID";
+		protected String FirstName = "NULL";
+		protected String LastName = "NULL";
+		protected String StreetAddress = "NULL";
+		protected String ZipCode = "NULL";
+		protected String PhoneNumber = "NULL";
 		
 		//Setters
 		public void setFirstName()
 		{ 
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("Please Enter the First Name: ");
-			String FirstName = scanner.nextLine();
-			setFirstName(FirstName);
+			System.out.println("Please Enter their First Name: ");
+			setFirstName(scanner.nextLine());
 		}
 		public void setLastName()
 		{
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("Please Enter the Last Name: ");
-			String LastName = scanner.nextLine();
-			setLastName(LastName);
+			System.out.println("Please Enter their Last Name: ");
+			setLastName(scanner.nextLine());
 		}
 		public void setStreetAddress()
 		{
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("Please Enter the Street Address: ");
-			String StreetAddress = scanner.nextLine();
-			setStreetAddress(StreetAddress);
+			System.out.println("Please Enter their Street Address: ");
+			setStreetAddress(scanner.nextLine());
 		}
 		public void setZipCode()
 		{
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("Please Enter the Zip Code: ");
-			String ZipCode = scanner.nextLine();
-			setZipCode(ZipCode);
+			System.out.println("Please Enter their Zip Code: ");
+			setZipCode(scanner.nextLine());
 		}
 		public void setPhoneNumber()
 		{
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("Please Enter the Phone Number: ");
-			String PhoneNumber = scanner.nextLine();
-			setPhoneNumber(PhoneNumber);
+			System.out.println("Please Enter their Phone Number: ");
+			setPhoneNumber(scanner.nextLine());
 		}
 		
 		//Setters Overloaded
@@ -173,11 +168,11 @@ public class CollegeList
 		//Overloaded Constructor
 		public void Person(String FirstName, String LastName, String StreetAddress, String ZipCode, String PhoneNumber)
 		{
-			setFirstName(FirstName);
-			setLastName(LastName);
-			setStreetAddress(StreetAddress);
-			setZipCode(ZipCode);
-			setPhoneNumber(PhoneNumber);
+			this.setFirstName(FirstName);
+			this.setLastName(LastName);
+			this.setStreetAddress(StreetAddress);
+			this.setZipCode(ZipCode);
+			this.setPhoneNumber(PhoneNumber);
 		}
 		
 		//Print Info
@@ -196,9 +191,29 @@ public class CollegeList
 	private class CollegeEmployee extends Person
 	{
 		//
-		protected int Social;
-		protected double Salary;
-		protected String Department;
+		protected int Social = 0000000000;
+		protected double Salary = 0.00;
+		protected String Department = "NULL";
+		
+		//Setters
+		public void setSocial()
+		{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Please Enter their SSN: ");
+			setSocial(scanner.nextInt());
+		}
+		public void setSalary()
+		{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Please Enter their Salary: ");
+			setSalary(scanner.nextDouble());
+		}
+		public void setDepartment()
+		{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Please Enter their Department: ");
+			setDepartment(scanner.nextLine());
+		}
 		
 		//Setters Overloaded
 		public void setSocial(int Social)
@@ -221,20 +236,9 @@ public class CollegeList
 		{
 			//Calling the parent's default constructor here with "super()"
 			super();
-			
-			Scanner scanner = new Scanner(System.in);
-			
-			System.out.println("Please Enter their SSN: ");
-			int Social = scanner.nextInt();
-			setSocial(Social);
-			
-			System.out.println("Please Enter their Salary: ");
-			double Salary = scanner.nextDouble();
-			setSalary(Salary);
-			
-			System.out.println("Please Enter their Department: ");
-			String Department = scanner.nextLine();
-			setDepartment(Department);
+			this.setSocial();
+			this.setSalary();
+			this.setDepartment();
 		}
 		
 		//Overloaded Constructor
@@ -269,7 +273,23 @@ public class CollegeList
 
 	private class Faculty extends CollegeEmployee
 	{
-		private boolean Tenured;
+		private boolean Tenured = false;
+		
+		//Setters
+		public void setTenured()
+		{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("\nIs He/She Tenured? (Y/n): ");
+			if(scanner.next().equalsIgnoreCase("y")||scanner.next().equalsIgnoreCase("yes"))
+				this.Tenured = true;
+			else if(scanner.next().equalsIgnoreCase("n")||scanner.next().equalsIgnoreCase("no"))
+				this.Tenured = false;
+			else
+			{				
+				System.out.println("Invalid character");
+				this.Tenured = false;
+			}
+		}
 		
 		//Setters Overloaded
 		public void setTenured(boolean Tenured)
@@ -282,7 +302,7 @@ public class CollegeList
 		public Faculty()
 		{
 			super();
-			
+			this.setTenured();
 		}
 		
 		public Faculty(String FirstName, String LastName, String StreetAddress, String ZipCode, String PhoneNumber, int Social, double Salary, String Department, boolean Tenured)
@@ -295,7 +315,7 @@ public class CollegeList
 			super.setSocial(Social);
 			super.setSalary(Salary);
 			super.setDepartment(Department);
-			
+			this.setTenured(Tenured);
 		}
 		
 		//Print Info
@@ -320,6 +340,48 @@ public class CollegeList
 		private String Major;
 		private double GPA;
 		
+		//Setters
+		public void setMajor()
+		{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Please Enter the Student's Major: ");
+			setMajor(scanner.nextLine());
+		}
+		public void setGPA()
+		{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Please Enter the Student's GPA: ");
+			setGPA(scanner.nextLine());
+		}
+		//Overloaded Setters 
+		public void setMajor(String Major)
+		{ this.Major = Major; }
+		public void setGPA(double GPA)
+		{ this.GPA = GPA; }		
+		
+		//Getters
+		public String getMajor()
+		{ return Major; }
+		public double getGPA()
+		{ return GPA; }
+		
+		//Constructor
+		Student()
+		{
+			super();
+			this.setMajor();
+			this.setGPA();
+		}
+		
+		//Overloaded Constructor
+		Student(String FirstName, String LastName, String StreetAddress, String ZipCode, String PhoneNumber, String Major, double GPA)
+		{
+			super.setFirstName(FirstName);
+			super.setLastName(LastName);
+			super.setStreetAddress(StreetAddress);
+			super.setZipCode(ZipCode);
+			super.setPhoneNumber(PhoneNumber);
+		}
 	}
 }
 
