@@ -321,7 +321,7 @@ public class CollegeList
 		//Print Info
 		public void Print()
 		{
-			String Info = "College Employee";
+			String Info = "Faculty";
 			System.out.println(
 				String.format("%-20s", Info) +
 				"\nFirst Name: " + this.FirstName +
@@ -331,7 +331,8 @@ public class CollegeList
 				"\nPhone Number: " + this.PhoneNumber +
 				"\nSSN: " + this.Social + 
 				"\nSalary: " + this.Salary +
-				"\nDepartment: " + this.Department);
+				"\nDepartment: " + this.Department + 
+				"\nTenureship" + this.Tenured);
 		}
 	}
 
@@ -383,6 +384,20 @@ public class CollegeList
 			super.setPhoneNumber(PhoneNumber);
 			this.setMajor(Major);
 			this.setGPA(GPA);
+		}
+		
+		public void Print()
+		{
+			String Info = "Student";
+			System.out.println(
+				String.format("%-20s", Info) +
+				"\nFirst Name: " + this.FirstName +
+				"\nLast Name: " + this.LastName +
+				"\nStreet Address: " + this.StreetAddress +
+				"\nZip Code: " + this.ZipCode + 
+				"\nPhone Number: " + this.PhoneNumber +
+				"\nMajor: " + this.Major + 
+				"\nGPA: " + this.GPA);
 		}
 	}
 }
