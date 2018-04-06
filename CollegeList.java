@@ -351,7 +351,7 @@ public class CollegeList
 		{
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("Please Enter the Student's GPA: ");
-			setGPA(scanner.nextLine());
+			setGPA(scanner.nextInt());
 		}
 		//Overloaded Setters 
 		public void setMajor(String Major)
