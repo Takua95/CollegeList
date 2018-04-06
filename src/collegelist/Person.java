@@ -1,16 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Christian Brannon, ID: 1593881
+ *ITSE 2317-5001, 04.05.18
+ *Assignment: College List - Chapter 10
  */
+
+//College List Program: Main File
+
 package collegelist;
 
 import java.util.Scanner;
 
-/**
- *
- * @author cabrannon54955
- */
 public class Person
 {
     //
